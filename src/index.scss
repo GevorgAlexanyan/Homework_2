@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins';
+}
+
+
+:root{
+    --black: rgba(0, 0, 0, 1);
+    --white-text:  rgba(250, 250, 250, 1);
+    --white-grey:  rgba(255, 255, 255, 0.45);
+
+}
+
+.contianer{
+    padding-left: 135px;
+    padding-right: 135px;
+}
+
+@media screen and (max-width:1080px) {
+    .contianer{
+        padding-left: 55px;
+        padding-right: 55px;
+    }
+}
+@media screen and (max-width:580px) {
+    .contianer{
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+}
+
+@media screen and (max-width:400px ){
+    .contianer{
+        padding-left: 15x;
+        padding-right: 15px;
+    }
+}

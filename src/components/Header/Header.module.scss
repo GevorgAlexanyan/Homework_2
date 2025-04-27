@@ -1,0 +1,266 @@
+header{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.navLeng{
+    background-color: var(--black);
+    padding-top: 12px;
+    padding-bottom: 12px;
+    div{
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        div{
+            display: flex;
+            flex-direction: row;
+            flex: 1;
+            align-items: center;
+            justify-content: center;
+            p{
+            font-weight: 300;
+            font-size: 14px;
+            line-height: 21px;
+            letter-spacing: 0%; 
+            color:var(--white-text);       
+        }
+        a{
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 24px;
+            letter-spacing: 0%;
+            text-align: center;
+            text-decoration: underline;
+            text-decoration-style: solid;
+            text-decoration-thickness: 0%;
+            color: var(--white-text);
+        } 
+    }
+    select{
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 21px;
+        letter-spacing: 0%;    
+        color: var(--white-text);
+        background-color: var(--black);
+        border: none;
+    }
+}
+}
+
+.navBar{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    h2{
+        font-family: Inter;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 24px;
+        letter-spacing: 3%;
+        color: var(--black);
+    }
+    .navList{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 48px;
+        a{
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 24px;
+            letter-spacing: 0%;
+            text-align: center;   
+            text-decoration: none;
+            color: var(--black);     
+        }
+    }
+    .globalHidding{
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        gap: 10px;
+         .hiddenMenu{ 
+              display: none;
+             .openMenu{
+                display: none;
+             }     
+            }
+            
+        }
+    }
+    .hamburger{
+         display: flex;
+         align-items: center;
+         flex-direction: column;
+         border: none;
+         gap: 5px;
+         background-color: transparent;
+         height: 100%;
+          div{
+            height: 2px;
+            width: 24px;
+            background-color: var(--black);
+            border-radius: 2px;
+          }
+    }
+    .hidden{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 34px;
+        padding: 10px 15px;
+        background-color:  rgba(245, 245, 245, 1);
+            input{
+                border: none;
+                flex: 1;
+                background-color: rgba(245, 245, 245, 1);                ;
+                outline: none;
+            }
+            input::placeholder{
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 18px;
+                letter-spacing: 0%;                
+            }
+            button{
+                border: none;
+                cursor: pointer;
+            }
+    }
+
+.hamburgerClose{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        border: none;
+        background-color: transparent;
+        height: 100%;
+        position: relative;
+    div{
+        position: absolute;
+        height: 2px;
+        width: 24px;
+        background-color: var(--black);
+        border-radius: 2px;
+    }
+    .numOne{
+        transform: rotate(45deg);
+    }
+    .numThree{
+        transform: rotate(-45deg);
+    }
+    .numTwo{
+        display: none;
+    }
+}    
+
+@media  (max-width:1000px) {
+    .navBar{
+    .navList{
+            gap: 20px;
+        }
+    }
+}
+
+@media (max-width:800px) {
+    .navBar{
+        .hidden{
+            background-color: transparent;
+            transition: 0.3s;
+            height: 100%;
+            input{
+                display: none;
+                background-color: transparent;
+                transition: 0.3s;
+            }
+            button{
+                background-color: transparent;
+            }
+        }
+        .showen{
+            background-color:  rgba(245, 245, 245, 1);
+            input{
+                display: block;
+                background-color:  rgba(245, 245, 245, 1);
+            }
+        }
+        .navList{
+           display: none;
+        }
+
+       .globalHidding{
+        .hiddenMenu{
+            display: block;
+        }
+        .showenMenu{
+            .openMenu{
+                width: 400px;
+                height: 100vh;
+                background-color: var(--white-text);
+                box-shadow: 0 0 10px var(--black);
+                position: fixed;
+                display: flex;
+                top: 0;
+                right: -400px;
+                right: 0;
+                padding: 15px;
+                transition: right 0.3s ease;
+                nav{
+                    padding-top: 40px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 35px;
+                    a{
+                        font-weight: 600;
+                        font-size: 30px;
+                        line-height: 24px;
+                        letter-spacing: 0%;
+                        text-align: center;   
+                        text-decoration: none;
+                        color: var(--black);     
+                    }
+                .showenMenu .openMenu {
+                    right: 0; 
+                  }
+                }
+            }
+        }
+    }
+}
+.navLeng{
+    div{
+        div{
+            display: none;
+        }
+    }
+}
+
+
+}
+
+@media (max-width:500px){
+   .navBar{
+        h2{
+            font-size: 20px;
+        }
+        .hidden{
+            padding: 10px 5px;
+            gap: 15px;
+        }
+       .globalHidding{
+           .showenMenu{
+            .openMenu{
+               width: 270px;
+            }      
+        }
+    }
+}
+}
+

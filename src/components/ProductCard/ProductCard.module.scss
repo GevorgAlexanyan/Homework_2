@@ -1,0 +1,61 @@
+.cardContainer{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 30px;
+}
+
+
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 270px;
+    gap: 16px;
+    border-radius: 10px;
+    .divImg{
+        height: 250px;
+        width: 270px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        background-color: rgba(245, 245, 245, 1);
+        div{
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+        }
+    }
+    .add{
+        background-color:rgba(0, 0, 0, 1);
+        color: var(--white-text);
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 12px 0;
+        border: none;
+    }
+    .priceName{
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        width: 100%;
+        h2{
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 24px;
+            letter-spacing: 0%;   
+            color: var(--black);       
+        }
+    }
+    img{
+        width: 100px;
+        object-fit: contain;
+        height: 120px;
+    }
+}

@@ -1,0 +1,45 @@
+.filter{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.line_list{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;   
+    width: 100%;
+    button{
+        background-color: transparent;
+        border: none;
+    }
+    h4{
+      font-weight: 700;
+      font-size: 15px;
+      line-height: 28px;
+      letter-spacing: 0%;        
+    } 
+}
+.length{
+    display: flex;
+    flex-direction: row;
+    align-items: center; 
+    p{
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 28px;
+        letter-spacing: 0%;  
+        color: rgba(128, 128, 128, 1);  
+    }
+}
+
+.select_price{
+     border: none;
+     font-weight: 700;
+     font-size: 15px;
+     line-height: 28px;
+     letter-spacing: 0%;
+}
