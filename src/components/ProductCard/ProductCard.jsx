@@ -9,11 +9,9 @@ import { useNavigate } from 'react-router-dom';
 export const ProductCard = ({ prods }) => {
   const navigate = useNavigate();
   return (
-    <div className={`contianer ${styles.cardContainer}`}
-    onClick={() => navigate(`/product/${prods.id}`)}
-    >
+    <div className={`contianer ${styles.cardContainer}`}>
       {prods.map((e) => (
-        <div className={styles.card} key={e.id}>
+        <div className={styles.card} key={e.id} onClick={() => navigate(`/product/${e.id}`)}>
           <div className={styles.divImg}>
             <div>
               <img src={`${e.images[0]}`} alt="" />
