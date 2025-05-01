@@ -1,0 +1,27 @@
+.pagination{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+    justify-content: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    button{
+        padding: 5px;
+        height: 30px;
+        aspect-ratio: 1/1;
+        display: inline-block;
+        outline: none;
+        border: 0.1 ;
+    }
+    .sel{
+        background-color: var(--red-bac);
+    }
+}
+
+
+@media screen and (max-width:585px) {
+    .pagination {
+        gap: 6px;
+    }
+}

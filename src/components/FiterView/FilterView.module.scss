@@ -43,3 +43,27 @@
      line-height: 28px;
      letter-spacing: 0%;
 }
+
+@media screen and (max-width:750px) {
+     .line_list{
+        .line_5{
+              display: none;
+        }
+     }
+}
+
+@media screen and (max-width:625px) {
+    .line_list{
+       .line_4{
+             display: none;
+       }
+    }
+}
+
+@media screen and (max-width:550px) {
+    .line_list{
+       .line_3{
+             display: none;
+       }
+    }
+}

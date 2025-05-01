@@ -29,9 +29,9 @@ export const Header = () => {
         </div>
       </div>
       <div className={`contianer ${styles.navBar}`}>
-        <h2>
+        <a className={styles.h2} href='./Home.module.scss'>
           Exclusive
-        </h2>
+        </a>
         <nav className={styles.navList}>
           <a href="">Home</a>
           <a href="">Contact</a>
