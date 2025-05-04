@@ -12,6 +12,8 @@
         background-color: rgba(245, 245, 245, 1);
         width: 100%;
         position: relative;
+        width: 100%;
+            aspect-ratio: 17 / 16;
         .loading{
             position: absolute;
             width: 60px;
@@ -25,17 +27,7 @@
             border: 1px solid var(--red-bac);
             border-bottom-color: transparent;
             animation: load 1s infinite linear;
-        }
-        div{
-            display: flex;
-            flex: 1;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-around;
-            div{
-                width: 100%;
-                aspect-ratio: 17 / 16;
-            }
+            
         }
         img {
             width:100%;

@@ -10,43 +10,49 @@ export const ProductCard = ({ e }) => {
   const [loading, setLoading] = useState(true)
   const navigate = useNavigate();
 
-return (
+  const basketArreyAdd = (item) => {
+    const currentBasket = JSON.parse(localStorage.getItem("basket")) || [];
+    const updatedBasket = [...currentBasket, item];
+    localStorage.setItem("basket", JSON.stringify(updatedBasket));
+  };
+  
+  
+  return (
 
-  <div className={styles.card} key={e.id} onClick={() => navigate(`/product/${e.id}`)}>
-    <div className={styles.divImg}>
-      {loading ? <div className={styles.loading}></div> : <></>}
-      <div>
-        <div>
-          <img onLoad={() => setLoading(false)} style={{ opacity: loading ? "0" : "1" }} src={`${e.images[0]}`} alt="" />
+    <div className={styles.card} key={e.id} onClick={() => navigate(`/product/${e.id}`)}>
+      <div className={styles.divImg}>
+        {loading ? <div className={styles.loading}></div> : <></>}
+        <img onLoad={() => setLoading(false)} style={{ opacity: loading ? "0" : "1" }} src={`${e.images[0]}`} alt="" />
+        <button className={styles.add}
+          onClick={(event) => { 
+            event.stopPropagation()
+            basketArreyAdd(e) }}>
+          <ShopIcon width={24} height={24} /> <span> Add To Cart </span>
+        </button>
+      </div>
+      <div className={styles.priceName}>
+        <h2>
+          {e.title}
+        </h2>
+        <span>
+          {`${e.price}$`}
+        </span>
+        <div className={styles.rating}>
+          {Array.from({ length: Math.round(e.rating) }).map((_, index) => (
+            <span key={`full-${index}`} className={styles.fullStar}>
+              <StarIcon />
+            </span>
+          ))}
+          {Array.from({ length: 5 - Math.round(e.rating) }).map((_, index) => (
+            <span key={`empty-${index}`} className={styles.emptyStar}>
+              <EmptyStarIcon />
+            </span>
+          ))}
+          <span className={styles.reviewCount}>{`(${e.stock})`}</span>
         </div>
-      </div>
-      <button className={styles.add}>
-        <ShopIcon width={24} height={24} /> <span> Add To Cart </span>
-      </button>
-    </div>
-    <div className={styles.priceName}>
-      <h2>
-        {e.title}
-      </h2>
-      <span>
-        {`${e.price}$`}
-      </span>
-      <div className={styles.rating}>
-        {Array.from({ length: Math.round(e.rating) }).map((_, index) => (
-          <span key={`full-${index}`} className={styles.fullStar}>
-            <StarIcon />
-          </span>
-        ))}
-        {Array.from({ length: 5 - Math.round(e.rating) }).map((_, index) => (
-          <span key={`empty-${index}`} className={styles.emptyStar}>
-            <EmptyStarIcon />
-          </span>
-        ))}
-        <span className={styles.reviewCount}>{`(${e.stock})`}</span>
-      </div>
 
-    </div>
-  </div>
-);
+      </div>
+    </div >
+  );
 };
 

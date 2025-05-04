@@ -32,7 +32,7 @@ export const Home = () => {
   useEffect(() => {
     getProducts(20, 20 * (page - 1))
       .then(data => {
-        setTotalPage(Math.ceil(data.total / data.limit));
+        setTotalPage(Math.ceil(data.total / 20));
         setProducts(data.products);
         window.scrollTo({ top: 0, behavior: 'smooth' });
       })

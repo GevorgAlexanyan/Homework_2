@@ -7,19 +7,21 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { Header } from './components/Header/Header'
 import { Footer } from './components/Footer/Footer'
 import { ProductPage } from './pages/ProductPage/ProductPage'
+import { BasketPage } from './pages/BasketPage/BasketPage'
 
 function App() {
 
   return (
     <>
-      <Header/>
       <BrowserRouter>
+      <Header/>
         <Routes>
            <Route path="/" element={<Home />} />
            <Route path='/product/:id' element={<ProductPage/>}></Route>
+           <Route path="/BasketPage" element={<BasketPage/>}/>
         </Routes>
-      </BrowserRouter>
       <Footer/> 
+      </BrowserRouter>
     </>
   )
 }

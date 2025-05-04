@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import styles from './Header.module.scss'
 import { SearchIcon } from '../../icones/SearchIcon'
+import { Link, NavLink } from 'react-router-dom';
+import { ShopIcon } from '../../icones/ShopIcon';
+import { HeartIcon } from '../../icones/HeartIcon';
 
 export const Header = () => {
   const [active, setActive] = useState(false);
@@ -9,7 +12,7 @@ export const Header = () => {
     setActive(prev => !prev);
   }
 
-  const [open,setOpen] = useState(false)
+  const [open, setOpen] = useState(false)
 
   const openMenu = () => {
     setOpen(prev => !prev);;
@@ -29,40 +32,56 @@ export const Header = () => {
         </div>
       </div>
       <div className={`contianer ${styles.navBar}`}>
-        <a className={styles.h2} href='./Home.module.scss'>
+        <Link className={styles.h2} to="/">
           Exclusive
-        </a>
+        </Link>
         <nav className={styles.navList}>
-          <a href="">Home</a>
-          <a href="">Contact</a>
-          <a href="">About</a>
-          <a href="">Sign Up</a>
+          <NavLink to="/">Home</NavLink>
+          <NavLink>Contact</NavLink>
+          <NavLink>About</NavLink>
+          <NavLink>Sign Up</NavLink>
         </nav>
         <div className={styles.globalHidding}>
-          <div className={` ${styles.hidden} ${active ? styles.showen : ''}`}>
-            <input type="search" placeholder='What are you looking for?' />
+          <div className={styles.hidden}>
+            <input type="text" placeholder='What are you looking for?' />
             <button onClick={tagglingSearch} >
               <SearchIcon width={16} height={16} />
             </button>
-          </div >
-          <div className={`${styles.hiddenMenu} ${ open ? styles.showenMenu : ''}`}>
-            <button onClick={openMenu} className={styles.hamburger}>
-              <div className={styles.numOne}></div>
-              <div className={styles.numTwo}></div>
-              <div className={styles.numTree}></div>
-            </button>
-            <div className={styles.openMenu}>
-              <button onClick={openMenu} className={styles.hamburgerClose}>
-                <div className={styles.numOne}></div>
-                <div className={styles.numTwo}></div>
-                <div className={styles.numThree}></div>
-              </button>
-              <nav>
-                <a href="">Home</a>
-                <a href="">Contact</a>
-                <a href="">About</a>
-                <a href="">Sign Up</a>
-              </nav>
+          </div  >
+          <div className={styles.carection}>
+            <div className={styles.iconNav}>
+              <Link to="">
+                <HeartIcon width={20} height={20} />
+              </Link>
+              <Link to="/BasketPage">
+                <ShopIcon width={25} height={25} />
+              </Link>
+              <div className={`${styles.hiddenMenu} ${open ? styles.showenMenu : ''}`}>
+                <button onClick={openMenu} className={styles.hamburger}>
+                  <div className={styles.numOne}></div>
+                  <div className={styles.numTwo}></div>
+                  <div className={styles.numTree}></div>
+                </button>
+                <div className={styles.openMenu}>
+                  <button onClick={openMenu} className={styles.hamburgerClose}>
+                    <div className={styles.numOne}></div>
+                    <div className={styles.numTwo}></div>
+                    <div className={styles.numThree}></div>
+                  </button>
+                  <div className={styles.hidden_serch}>
+                    <input type="text" placeholder='What are you looking for?' />
+                    <button onClick={tagglingSearch} >
+                      <SearchIcon width={16} height={16} />
+                    </button>
+                  </div  >
+                  <nav >
+                    <NavLink to="/">Home</NavLink>
+                    <NavLink>Contact</NavLink>
+                    <NavLink>About</NavLink>
+                    <NavLink>Sign Up</NavLink>
+                  </nav>
+                </div>
+              </div>
             </div>
           </div>
         </div>
