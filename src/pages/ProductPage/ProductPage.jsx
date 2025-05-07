@@ -84,7 +84,7 @@ export const ProductPage = () => {
                                 <b>New price:</b>
                                 <span
                                     style={{ color: `rgba(0, 0, 0, 1)` }}
-                                > ${product.price * (1 - product.discountPercentage * 0.01)}</span>
+                                > ${(product.price * (1 - product.discountPercentage * 0.01)).toFixed(2)}</span>
                             </div>
                             <div className={styles.percent}>{product.discountPercentage}%</div>
                         </div>
