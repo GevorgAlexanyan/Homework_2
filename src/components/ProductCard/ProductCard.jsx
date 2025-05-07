@@ -10,12 +10,30 @@ export const ProductCard = ({ e }) => {
   const [loading, setLoading] = useState(true)
   const navigate = useNavigate();
 
+  // const basketArreyAdd = (item) => {
+  //   const currentBasket = JSON.parse(localStorage.getItem("basket")) || [];
+  //   const updatedBasket = [...currentBasket, item];
+  //   localStorage.setItem("basket", JSON.stringify(updatedBasket));
+  // };
+
   const basketArreyAdd = (item) => {
     const currentBasket = JSON.parse(localStorage.getItem("basket")) || [];
-    const updatedBasket = [...currentBasket, item];
-    localStorage.setItem("basket", JSON.stringify(updatedBasket));
+  
+    const existingItemIndex = currentBasket.findIndex((i) => i.id === item.id);
+  
+    if (existingItemIndex !== -1) {
+      currentBasket[existingItemIndex].quantity =
+        (currentBasket[existingItemIndex].quantity || 1) + 1;
+    } else {
+      currentBasket.push({ ...item, quantity: 1 });
+    }
+  
+    localStorage.setItem("basket", JSON.stringify(currentBasket));
   };
   
+
+
+
   
   return (
 

@@ -10,23 +10,33 @@ export const BasketPage = () => {
     setBasketItems(storedBasket);
   }, []);
 
-  const groupedCart = []
+  const handleQuantityChange = (index, newQuantity) => {
+    const clampedQuantity = Math.max(1, Math.min(99, newQuantity));
 
-  basketItems.forEach(item => {
-    const existingItem = groupedCart.find((i) => i.id === item.id);
-    if (existingItem) {
-      existingItem.quantity += 1;
-    } else {
-      groupedCart.push({ ...item, quantity: 1 })
-    }
-  })
+    const updatedItems = basketItems.map((item, i) => 
+      i === index ? { ...item, quantity: clampedQuantity } : item
+    );
 
- 
+    setBasketItems(updatedItems);
+    localStorage.setItem("basket", JSON.stringify(updatedItems));
+  };
 
-
+  const handleDeleteItem = (indexToRemove) => {
+    const updatedItems = basketItems.filter((_, i) => i !== indexToRemove);
+    setBasketItems(updatedItems);
+    localStorage.setItem("basket", JSON.stringify(updatedItems));
+  };
   
 
 
+  const groupedCart = basketItems;
+
+  
+  
+  const total = groupedCart.reduce((acc, el) => {
+    return acc + el.quantity * el.price;
+  }, 0);
+  
   return (
     <div className='contianer'>
       <div className={styles.basketPageMain}>
@@ -41,7 +51,7 @@ export const BasketPage = () => {
             <p>Your basket is empty.</p>
           ) : (
             groupedCart.map((el, i) => (
-              <CartCard key={i} item={el} />
+              <CartCard key={i} item={el} handleQuantityChange={handleQuantityChange}   index={i}   handleDeleteItem={handleDeleteItem}/>
             ))
           )}
         </div>
@@ -60,7 +70,7 @@ export const BasketPage = () => {
           <div className={styles.managBarBillInfo}>
             <div>
               <p>Subtotal:</p>
-              <p></p>
+              <p>${total}</p>
             </div>
             <hr />
             <div>
@@ -70,7 +80,7 @@ export const BasketPage = () => {
             <hr />
             <div>
               <p>Shipping:</p>
-              <p>32462</p>
+              <p>${total}</p>
             </div>
           </div>
           <button>Procees to checkout</button>
