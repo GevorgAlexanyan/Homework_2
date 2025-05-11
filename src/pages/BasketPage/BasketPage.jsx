@@ -70,7 +70,7 @@ export const BasketPage = () => {
           <div className={styles.managBarBillInfo}>
             <div>
               <p>Subtotal:</p>
-              <p>${total}</p>
+              <p>${(total).toFixed(2)}</p>
             </div>
             <hr />
             <div>
@@ -80,7 +80,7 @@ export const BasketPage = () => {
             <hr />
             <div>
               <p>Shipping:</p>
-              <p>${total}</p>
+              <p>${(total).toFixed(2)}</p>
             </div>
           </div>
           <button>Procees to checkout</button>

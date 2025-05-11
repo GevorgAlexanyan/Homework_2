@@ -39,7 +39,7 @@ export const Header = () => {
           <NavLink to="/">Home</NavLink>
           <NavLink>Contact</NavLink>
           <NavLink>About</NavLink>
-          <NavLink>Sign Up</NavLink>
+          <NavLink to='/SignUp'>Sign Up</NavLink>
         </nav>
         <div className={styles.globalHidding}>
           <div className={styles.hidden}>
@@ -53,7 +53,7 @@ export const Header = () => {
               <Link to="">
                 <HeartIcon width={20} height={20} />
               </Link>
-              <Link to="/BasketPage">
+              <Link to="/basket">
                 <ShopIcon width={25} height={25} />
               </Link>
               <div className={`${styles.hiddenMenu} ${open ? styles.showenMenu : ''}`}>
@@ -78,7 +78,7 @@ export const Header = () => {
                     <NavLink to="/">Home</NavLink>
                     <NavLink>Contact</NavLink>
                     <NavLink>About</NavLink>
-                    <NavLink>Sign Up</NavLink>
+                    <NavLink to='/SignUp'>Sign Up</NavLink>
                   </nav>
                 </div>
               </div>
