@@ -197,6 +197,12 @@ header{
     }
 }  
 
+.search{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
 .carection{
     display: flex;
     flex-direction: row;
@@ -287,6 +293,7 @@ header{
         }
     }
 }
+
 .navLeng{
     div{
         div{

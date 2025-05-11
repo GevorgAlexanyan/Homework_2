@@ -8,7 +8,7 @@ export const SignUpPage = () => {
     const { register, handleSubmit, watch, reset, formState } = useForm({
         mode: 'onChange'
     });
-     const onSubmit = (data) => {
+    const onSubmit = (data) => {
         console.log('Submitted data:', data);
         reset();
     };

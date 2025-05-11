@@ -6,7 +6,7 @@ import { Pagination } from '../../components/Pagination/Pagination'
 import FilterView from '../../components/FiterView/FilterView'
 
 
-export const Home = () => {
+export const Home = ({ filterData }) => {
   const [page, setPage] = useState(1);
   const [totalPage, setTotalPage] = useState(0);
   const [products, setProducts] = useState([]);
@@ -14,19 +14,28 @@ export const Home = () => {
 
   useEffect(() => {
     const checkScreen = () => {
-        if (window.matchMedia('(max-width: 600px)').matches) {
-            setGrid(2);
-        } else if (window.matchMedia('(max-width: 900px)').matches) {
-            setGrid(3);
-        } else {
-            setGrid(4);
-        }
+      if (window.matchMedia('(max-width: 600px)').matches) {
+        setGrid(2);
+      } else if (window.matchMedia('(max-width: 900px)').matches) {
+        setGrid(3);
+      } else {
+        setGrid(4);
+      }
     };
 
     checkScreen();
     window.addEventListener('resize', checkScreen);
     return () => window.removeEventListener('resize', checkScreen);
-}, []);
+  }, []);
+
+  const filteredProductsRaw = products.filter(product =>
+    product.title.toLowerCase().includes(filterData.toLowerCase())
+  );
+
+  const filteredProducts = !filterData || filteredProductsRaw.length === 0
+    ? products
+    : filteredProductsRaw;
+
 
 
   useEffect(() => {
@@ -38,18 +47,18 @@ export const Home = () => {
       })
       .catch(err => console.log("Error fetching products:", err));
   }, [page]);
+
   const handleClick = (num) => {
     setPage(num)
   }
   const handleGridChange = (cols) => {
     setGrid(cols);
   };
-
   return (
     <div className={styles.dataHome}>
-      <FilterView handleGridChange={handleGridChange}/>
+      <FilterView handleGridChange={handleGridChange} />
       <div className={`contianer ${styles.cardContainer}`} style={{ gridTemplateColumns: `repeat(${grid}, 1fr)` }}>
-        {products.map((e) => (
+        {filteredProducts.map((e) => (
           <ProductCard key={e.id} e={e} />
         ))}
       </div>

@@ -4,8 +4,9 @@ import { SearchIcon } from '../../icones/SearchIcon'
 import { Link, NavLink } from 'react-router-dom';
 import { ShopIcon } from '../../icones/ShopIcon';
 import { HeartIcon } from '../../icones/HeartIcon';
+import { useForm } from 'react-hook-form';
 
-export const Header = () => {
+export const Header = ({onSubmit1,onSubmit2}) => {
   const [active, setActive] = useState(false);
 
   const tagglingSearch = () => {
@@ -17,6 +18,9 @@ export const Header = () => {
   const openMenu = () => {
     setOpen(prev => !prev);;
   }
+    const { register, handleSubmit, watch, reset, formState } = useForm({
+    mode: 'onChange'
+  });
 
   return (
     <header >
@@ -43,10 +47,17 @@ export const Header = () => {
         </nav>
         <div className={styles.globalHidding}>
           <div className={styles.hidden}>
-            <input type="text" placeholder='What are you looking for?' />
-            <button onClick={tagglingSearch} >
-              <SearchIcon width={16} height={16} />
-            </button>
+            <form className={styles.search} onSubmit={handleSubmit(onSubmit1)}>
+              <input type="text"
+                placeholder='What are you looking for?'
+                {...register("search1")}
+              />
+              <button
+                type="submit"
+              >
+                <SearchIcon width={16} height={16} />
+              </button>
+            </form>
           </div  >
           <div className={styles.carection}>
             <div className={styles.iconNav}>
@@ -69,10 +80,17 @@ export const Header = () => {
                     <div className={styles.numThree}></div>
                   </button>
                   <div className={styles.hidden_serch}>
-                    <input type="text" placeholder='What are you looking for?' />
-                    <button onClick={tagglingSearch} >
-                      <SearchIcon width={16} height={16} />
-                    </button>
+                    <form className={styles.search} onSubmit={handleSubmit(onSubmit2)}>
+                      <input type="text"
+                        placeholder='What are you looking for?'
+                        {...register("search2")}
+                      />
+                      <button
+                        type="submit"
+                      >
+                        <SearchIcon width={16} height={16} />
+                      </button>
+                    </form>
                   </div  >
                   <nav >
                     <NavLink to="/">Home</NavLink>

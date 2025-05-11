@@ -10,12 +10,6 @@ export const ProductCard = ({ e }) => {
   const [loading, setLoading] = useState(true)
   const navigate = useNavigate();
 
-  // const basketArreyAdd = (item) => {
-  //   const currentBasket = JSON.parse(localStorage.getItem("basket")) || [];
-  //   const updatedBasket = [...currentBasket, item];
-  //   localStorage.setItem("basket", JSON.stringify(updatedBasket));
-  // };
-
   const basketArreyAdd = (item) => {
     const currentBasket = JSON.parse(localStorage.getItem("basket")) || [];
   
