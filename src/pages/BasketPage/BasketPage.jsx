@@ -13,7 +13,7 @@ export const BasketPage = () => {
   const handleQuantityChange = (index, newQuantity) => {
     const clampedQuantity = Math.max(1, Math.min(99, newQuantity));
 
-    const updatedItems = basketItems.map((item, i) => 
+    const updatedItems = basketItems.map((item, i) =>
       i === index ? { ...item, quantity: clampedQuantity } : item
     );
 
@@ -26,17 +26,17 @@ export const BasketPage = () => {
     setBasketItems(updatedItems);
     localStorage.setItem("basket", JSON.stringify(updatedItems));
   };
-  
+
 
 
   const groupedCart = basketItems;
 
-  
-  
+
+
   const total = groupedCart.reduce((acc, el) => {
     return acc + el.quantity * el.price;
   }, 0);
-  
+
   return (
     <div className='contianer'>
       <div className={styles.basketPageMain}>
@@ -51,7 +51,7 @@ export const BasketPage = () => {
             <p>Your basket is empty.</p>
           ) : (
             groupedCart.map((el, i) => (
-              <CartCard key={i} item={el} handleQuantityChange={handleQuantityChange}   index={i}   handleDeleteItem={handleDeleteItem}/>
+              <CartCard key={i} item={el} handleQuantityChange={handleQuantityChange} index={i} handleDeleteItem={handleDeleteItem} />
             ))
           )}
         </div>

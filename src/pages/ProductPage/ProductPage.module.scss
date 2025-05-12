@@ -1,4 +1,4 @@
-.mainInfo{
+.mainInfo {
     display: flex;
     align-items: center;
     flex-direction: row;
@@ -6,81 +6,79 @@
     margin-top: 50px;
     margin-bottom: 50px;
     justify-content: space-between;
-    .imgMain{
+    .imgMain {
         display: inline-flex;
         flex-direction: row;
         align-items: center;
         padding: 10px;
         background-color: rgba(245, 245, 245, 1);
-        
     }
-        button{
-            font-size: 120px;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            border: none;
-            background-color: transparent;
-            outline: none;
-        }
-        &:hover button{
-            opacity: 1;
-        }
-     .infoMain{
+    button {
+        font-size: 120px;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        border: none;
+        background-color: transparent;
+        outline: none;
+    }
+    &:hover button {
+        opacity: 1;
+    }
+    .infoMain {
         display: flex;
         align-items: start;
         flex-direction: column;
         gap: 20px;
         padding: 30px;
-        .retPrice{
+        .retPrice {
             margin-top: 20px;
             display: flex;
             align-items: end;
             flex-direction: row;
             justify-content: space-between;
             width: 100%;
-            .peiceOldNew{
+            .peiceOldNew {
                 display: flex;
                 flex-direction: column;
                 align-items: start;
                 gap: 4px;
             }
-            .priceNew{
-               display: flex;
-               flex-direction: row;
-               align-items: center;
-               gap: 10px;
-            }
-            .priceOld{
+            .priceNew {
                 display: flex;
                 flex-direction: row;
                 align-items: center;
                 gap: 10px;
             }
-            .percent{
+            .priceOld {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 10px;
+            }
+            .percent {
                 display: inline-block;
                 padding: 5px;
                 border-radius: 10px;
-                background-color:var(--gren);
+                background-color: var(--gren);
                 color: var(--white-text);
             }
         }
-     }
-
+    }
 }
-.info{
+.info {
     display: flex;
     flex-direction: column;
     align-items: start;
     gap: 15px;
     margin-bottom: 100px;
     padding: 30px;
-    div{
+    div {
         display: flex;
         flex-direction: row;
         align-items: center;
         gap: 10px;
     }
-    span{
+    span {
         font-weight: 400;
         font-size: 20px;
         line-height: 24px;
@@ -88,7 +86,7 @@
         text-transform: capitalize;
         color: var(--gray);
     }
-    b{
+    b {
         font-weight: 700;
         font-size: 20px;
         line-height: 24px;
@@ -96,19 +94,19 @@
     }
 }
 
-.imgRout{
+.imgRout {
     width: 35vw;
-    object-fit: contain;
     aspect-ratio: 17 / 13;
     border-radius: 10px;
     position: relative;
-    img{
+    img {
         width: 100%;
         height: 100%;
         overflow: hidden;
         position: absolute;
+        object-fit: contain;
     }
-    .loading{
+    .loading {
         position: absolute;
         width: 60px;
         height: 60px;
@@ -122,45 +120,41 @@
         border-bottom-color: transparent;
         animation: load 1s infinite linear;
     }
-
 }
 
-
-@media screen and (max-width:1100px) {
-    .imgRout{
+@media screen and (max-width: 1100px) {
+    .imgRout {
         width: 40vw;
     }
 }
 
-@media screen and (max-width:1000px) {
-    .imgRout{
+@media screen and (max-width: 1000px) {
+    .imgRout {
         width: 43vw;
     }
 }
 
-@media screen and (max-width:980px) {
-    .imgRout{
+@media screen and (max-width: 980px) {
+    .imgRout {
         width: 60vw;
     }
-    .mainInfo{
+    .mainInfo {
         display: flex;
         align-items: center;
         flex-direction: column;
     }
 }
-@media screen and (max-width:580px) {
-    .imgRout{
+@media screen and (max-width: 580px) {
+    .imgRout {
         width: 70vw;
     }
-  
 }
 
-
-@keyframes load{
-    0%{
+@keyframes load {
+    0% {
         transform: rotateZ(0deg);
-    }100%{
+    }
+    100% {
         transform: rotateZ(360deg);
     }
-
 }

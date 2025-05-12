@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { getProducts } from '../../sevices/product'
+import {  searchProducts } from '../../sevices/product'
 import styles from './Home.module.scss'
 import { ProductCard } from '../../components/ProductCard/ProductCard'
 import { Pagination } from '../../components/Pagination/Pagination'
@@ -28,25 +28,20 @@ export const Home = ({ filterData }) => {
     return () => window.removeEventListener('resize', checkScreen);
   }, []);
 
-  const filteredProductsRaw = products.filter(product =>
-    product.title.toLowerCase().includes(filterData.toLowerCase())
-  );
 
-  const filteredProducts = !filterData || filteredProductsRaw.length === 0
-    ? products
-    : filteredProductsRaw;
-
-
+  const [filteredProductsNew, setFilteredProducts] = useState([])
 
   useEffect(() => {
-    getProducts(20, 20 * (page - 1))
+    searchProducts(filterData, 20, 20 * (page - 1))
       .then(data => {
         setTotalPage(Math.ceil(data.total / 20));
         setProducts(data.products);
+        setFilteredProducts(data.products)
         window.scrollTo({ top: 0, behavior: 'smooth' });
       })
       .catch(err => console.log("Error fetching products:", err));
-  }, [page]);
+  }, [page, filterData]);
+
 
   const handleClick = (num) => {
     setPage(num)
@@ -58,7 +53,7 @@ export const Home = ({ filterData }) => {
     <div className={styles.dataHome}>
       <FilterView handleGridChange={handleGridChange} />
       <div className={`contianer ${styles.cardContainer}`} style={{ gridTemplateColumns: `repeat(${grid}, 1fr)` }}>
-        {filteredProducts.map((e) => (
+        {filteredProductsNew.map((e) => (
           <ProductCard key={e.id} e={e} />
         ))}
       </div>

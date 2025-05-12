@@ -18,13 +18,11 @@ function App() {
   const [filterData, setfilterData] = useState("")
   const onSubmit1 = (data) => {
     console.log('Form data:', data);
-    if (!data.search1.trim()) return;
     setfilterData(data.search1);
     reset();
   };
-   const onSubmit2 = (data) => {
+  const onSubmit2 = (data) => {
     console.log('Form data:', data);
-    if (!data.search2.trim()) return;
     setfilterData(data.search2);
     reset();
   };
