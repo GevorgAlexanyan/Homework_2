@@ -4,6 +4,40 @@
     align-items: center;
     gap: 16px;
     border-radius: 10px;
+    position: relative;
+        .likeIcon{
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            padding: 5px;
+            border-radius:50%;
+            background-color: white;
+            z-index: 10;
+            border-color: transparent;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            svg {
+                 fill: var(--white-text);
+                 transition: fill 0.3s ease;
+            }
+        }
+        .likeIconSel{
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            padding: 5px;
+            border-radius:50%;
+            background-color: var(--white-text);
+            z-index: 10;
+            border-color: transparent;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+             svg {
+                 fill:var(--red-bac);
+                }
+        }
         .divImg{
         display: flex;
         flex-direction: column;

@@ -61,7 +61,7 @@ export const Header = ({onSubmit1,onSubmit2}) => {
           </div  >
           <div className={styles.carection}>
             <div className={styles.iconNav}>
-              <Link to="">
+              <Link to="/liked">
                 <HeartIcon width={20} height={20} />
               </Link>
               <Link to="/basket">

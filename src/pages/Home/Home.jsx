@@ -4,6 +4,7 @@ import styles from './Home.module.scss'
 import { ProductCard } from '../../components/ProductCard/ProductCard'
 import { Pagination } from '../../components/Pagination/Pagination'
 import FilterView from '../../components/FiterView/FilterView'
+import { LikeIcon } from '../../icones/LikeIcon'
 
 
 export const Home = ({ filterData }) => {
@@ -54,8 +55,8 @@ export const Home = ({ filterData }) => {
       <FilterView handleGridChange={handleGridChange} />
       <div className={`contianer ${styles.cardContainer}`} style={{ gridTemplateColumns: `repeat(${grid}, 1fr)` }}>
         {filteredProductsNew.map((e) => (
-          <ProductCard key={e.id} e={e} />
-        ))}
+          <ProductCard key={e.id} e={e} icon={<LikeIcon width={16} height={14} />}  />
+        ))} 
       </div>
       <Pagination page={page} total={totalPage} handleClick={handleClick} />
     </div>

@@ -9,6 +9,8 @@ import { SignUpPage } from './pages/SignUpPage/SignUpPage'
 import { LogInPage } from './pages/LogInPage/LogInPage'
 import { useForm } from 'react-hook-form'
 import { useState } from 'react'
+import { LikeContext, LikeProvider } from './components/LikeContext/LikeContext'
+import { LikedProductsPage } from './pages/LikedProductsPage/LikedProductsPage'
 
 
 function App() {
@@ -29,15 +31,18 @@ function App() {
   console.log(filterData)
   return (
     <BrowserRouter>
-      <Header onSubmit2={onSubmit2} onSubmit1={onSubmit1} />
-      <Routes>
-        <Route path="/" element={<Home filterData={filterData} />} />
-        <Route path="/product/:id" element={<ProductPage />} />
-        <Route path="/basket" element={<BasketPage />} />
-        <Route path="/SignUp" element={<SignUpPage />} />
-        <Route path="/Login" element={<LogInPage />} />
-      </Routes>
-      <Footer />
+      <LikeProvider>
+        <Header onSubmit2={onSubmit2} onSubmit1={onSubmit1} />
+        <Routes>
+          <Route path="/" element={<Home filterData={filterData} />} />
+          <Route path="/product/:id" element={<ProductPage />} />
+          <Route path="/basket" element={<BasketPage />} />
+          <Route path="/SignUp" element={<SignUpPage />} />
+          <Route path="/Login" element={<LogInPage />} />
+          <Route path="/liked" element={<LikedProductsPage/>}/>
+        </Routes>
+        <Footer />
+      </LikeProvider>
     </BrowserRouter>
   )
 }
